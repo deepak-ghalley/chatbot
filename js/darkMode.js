@@ -1,5 +1,3 @@
-// darkMode.js
-
 // Select the dark mode toggle button from the chatbot modal
 const nightModeBtn = document.querySelector('.nightmode');
 
@@ -7,7 +5,7 @@ const nightModeBtn = document.querySelector('.nightmode');
 if (localStorage.getItem('darkMode') === 'enabled') {
     document.body.classList.add('dark-mode');
     if (nightModeBtn) {
-        nightModeBtn.src = '../img/lightzone.svg';  // Switch icon to light mode
+        nightModeBtn.src = './img/lightzone.svg';  // Switch icon to light mode
     }
 
     // Inform the parent page to also switch to dark mode
@@ -22,7 +20,7 @@ if (nightModeBtn) {
         document.body.classList.toggle('dark-mode');
 
         if (document.body.classList.contains('dark-mode')) {
-            nightModeBtn.src = '../img/lightzone.svg';  // Path to lightzone icon
+            nightModeBtn.src = './img/lightzone.svg';  // Path to lightzone icon
             localStorage.setItem('darkMode', 'enabled');
 
             // Inform the parent page to switch to dark mode
@@ -30,7 +28,7 @@ if (nightModeBtn) {
                 window.parent.postMessage({ mode: 'dark' }, '*');
             }
         } else {
-            nightModeBtn.src = '../img/darkzone.svg';  // Path to darkzone icon
+            nightModeBtn.src = './img/darkzone.svg';  // Path to darkzone icon
             localStorage.setItem('darkMode', 'disabled');
 
             // Inform the parent page to switch to light mode
@@ -46,12 +44,12 @@ window.addEventListener('message', function(event) {
     if (event.data.mode === 'dark') {
         document.body.classList.add('dark-mode');
         if (nightModeBtn) {
-            nightModeBtn.src = '../img/lightzone.svg';  // Switch to lightzone icon
+            nightModeBtn.src = './img/lightzone.svg';  // Switch to lightzone icon
         }
     } else if (event.data.mode === 'light') {
         document.body.classList.remove('dark-mode');
         if (nightModeBtn) {
-            nightModeBtn.src = '../img/darkzone.svg';  // Switch to darkzone icon
+            nightModeBtn.src = './img/darkzone.svg';  // Switch to darkzone icon
         }
     }
 });
@@ -60,6 +58,6 @@ window.addEventListener('message', function(event) {
 const privateChatBtn = document.getElementById("privateChatBtn");
 if (privateChatBtn) {
     privateChatBtn.addEventListener("click", function() {
-        window.location.href = "hello.html"; // Redirects to hello.html
+        window.location.href = "./html/hello.html"; // Redirects to hello.html
     });
 }
